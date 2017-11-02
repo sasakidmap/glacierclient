@@ -4,7 +4,6 @@ aws glacier client
 """
 import sys
 import subprocess
-from glacierclient import logger
 
 class Glacier(object):
     """
@@ -29,8 +28,7 @@ class Glacier(object):
         """
         create vault
         """
-        logger.debug('--- create vault start ---')
         cmd = 'aws glacier create-vault --vault-name %s --account-id %s'
         cmd = cmd % (self.vault_name, account_id)
         self._run_cmd(cmd)
-        logger.debug('--- create vault  end  ---')
+
